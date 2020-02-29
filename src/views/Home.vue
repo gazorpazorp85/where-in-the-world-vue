@@ -1,18 +1,47 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="main-container">
+      <CountryFilter @filterCountries="onFilterCountries" />
+      <CountryList :countries="countriesToShow" />
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import CountryList from '../components/CountryList';
+import CountryFilter from '../components/CountryFilter';
+
+import CountryService from '../services/CountryService';
 
 export default {
-  name: 'Home',
+  data() {
+    return {
+      countries: [],
+      filterBy: { name: '', region: '' }
+    }
+  },
   components: {
-    HelloWorld
+    CountryList,
+    CountryFilter
+  },
+  computed: {
+    countriesToShow() {
+      const lowerCaseFilterName = this.filterBy.name.toLowerCase();
+      const lowerCaseRegionName = this.filterBy.region.toLowerCase();
+      return this.countries.filter(country =>
+        country.name.toLowerCase().includes(lowerCaseFilterName) &&
+        country.region.toLowerCase().includes(lowerCaseRegionName)
+      )
+    }
+  },
+  async created() {
+    this.countries = await CountryService.query();
+  },
+  methods: {
+    onFilterCountries(filterBy) {
+      this.filterBy = filterBy;
+    }
   }
 }
 </script>
