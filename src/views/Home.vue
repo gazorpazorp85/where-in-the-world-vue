@@ -1,8 +1,8 @@
 <template>
-  <div class="home">
+  <div class="home" :class="{darkMode: isDarkModeOn}">
     <div class="main-container">
-      <CountryFilter @filterCountries="onFilterCountries" />
-      <CountryList :countries="countriesToShow" />
+      <CountryFilter @filterCountries="onFilterCountries" :isDarkModeOn="isDarkModeOn" />
+      <CountryList :countries="countriesToShow" :isDarkModeOn="isDarkModeOn"/>
     </div>
   </div>
 </template>
@@ -15,6 +15,11 @@ import CountryFilter from '../components/CountryFilter';
 import CountryService from '../services/CountryService';
 
 export default {
+  props: {
+    isDarkModeOn: {
+      isRequired: true
+    }
+  },
   data() {
     return {
       countries: [],

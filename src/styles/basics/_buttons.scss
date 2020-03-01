@@ -1,25 +1,37 @@
 .back-btn {
-    height: 40px;
-    width: 137px;
-    border-radius: 6px;
-    box-shadow: 1px 1px 6px $clr3;
-    background-image: url(assets/img/back-arrow.png);
-    background-repeat: no-repeat;
-    background-position: 32px 12px;
+  height: 40px;
+  width: 137px;
+  border-radius: 6px;
+  box-shadow: 1px 1px 6px $clr3;
+  background-image: url(assets/img/back-arrow.png);
+  background-repeat: no-repeat;
+  background-position: 32px 12px;
+
+  &.backBtnDark {
+    background-color: $clr6;
+    background-image: url(assets/img/back-arrow-white.png);
+    box-shadow: 1px 1px 6px $clr5;
+  }
 }
 
 .border-country-button {
-    background-color: $clr4;
-    box-shadow: 1px 1px 6px $clr3;
-    text-align: center;
-    font-size: 14px;
-    padding: 0 10px;
-    height: 30px;
-    line-height: 30px;
-    width: fit-content;
-    margin-bottom: 10px;
+  height: 30px;
+  background-color: $clr4;
+  box-shadow: 1px 1px 6px $clr3;
+  text-align: center;
+  font-size: 14px;
+  padding: 0 10px;
+  line-height: 30px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-bottom: 10px;
+
+  &.borderCountrybtnDarkMode {
+    background-color: $clr6;
+    box-shadow: 1px 1px 6px $clr5;
+  }
 }
 
 .border-country-button:hover {
-    color: $clr3;
+  color: $clr3;
 }

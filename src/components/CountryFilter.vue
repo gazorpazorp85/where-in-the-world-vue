@@ -3,14 +3,15 @@
     <input
       type="text"
       id="txt-filter"
+      :class="{countryFilterElementsDarkMode: isDarkModeOn}"
       placeholder="Search for a country..."
       @input="onFilter"
       v-model="filterBy.name"
     />
-    <div class="region-filter-container">
-      <div @click.self="onToggleRegionFilter" class="pointer region-filter-select-container">
+    <div class="region-filter-container" :class="{countryFilterElementsDarkMode: isDarkModeOn}">
+      <div @click.self="onToggleRegionFilter" class="pointer region-filter-select-container" :class="{countryFilterElementsDarkMode: isDarkModeOn}">
         {{filterRegionInput}}
-        <div v-if="this.toggleRegionFilter" id="region-filter">
+        <div v-if="this.toggleRegionFilter" class="region-filter" :class="{countryFilterElementsDarkMode: isDarkModeOn}">
           <div @click="onSetRegionFilter($event)" class="filter-option">Show All</div>
           <div @click="onSetRegionFilter($event)" class="filter-option">Africa</div>
           <div @click="onSetRegionFilter($event)" class="filter-option">America</div>
@@ -25,6 +26,11 @@
 
 <script>
 export default {
+    props: {
+    isDarkModeOn: {
+      isRequired: true
+    }
+  },
   data() {
     return {
       filterBy: { name: '', region: '' },

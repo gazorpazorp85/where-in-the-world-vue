@@ -1,7 +1,12 @@
 .country-details-page {
   background-color: $clr1;
-  height: 100%;
+  height: 91.3%;
   width: 100%;
+}
+
+.darkMode {
+  background-color: $clr5;
+  color: $clr4;
 }
 
 .country-details-container {
@@ -21,7 +26,7 @@
 .details-flag-container {
   height: 400px;
   width: 560px;
-  margin-right: 122px;
+  margin-right: 120px;
 
   img {
     height: 100%;
@@ -43,13 +48,13 @@
 .details-info-country-name {
   font-size: 31px;
   font-family: "nunito-bold";
-  letter-spacing: 0.25px;
+  line-height: 27px;
   margin-top: 48px;
   margin-bottom: 34px;
 }
 
 .left-subcontainer {
-  margin-right: 119px;
+  margin-right: 133px;
 }
 
 .info-field {

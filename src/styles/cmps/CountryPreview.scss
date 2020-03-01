@@ -35,6 +35,11 @@
   max-height: 70px;
 }
 
+.CountryPreviewDarkMode {
+  background-color: $clr6;
+  color: $clr4;
+}
+
 @include for-wider-layout {
   .country-container {
     width: 278px;

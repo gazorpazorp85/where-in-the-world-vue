@@ -1,7 +1,7 @@
 <template>
-  <section v-if="country" class="country-details-page">
+  <section v-if="country" class="country-details-page" :class="{darkMode: isDarkModeOn}">
     <div class="flex column main-container country-details-container">
-      <div class="flex pointer capitalize back-btn" @click="this.goBack">
+      <div class="flex pointer capitalize back-btn" :class="{backBtnDark: isDarkModeOn}" @click="this.goBack">
         <span class="back-btn-text">back</span>
       </div>
       <div class="flex details-subcontainer">
@@ -53,6 +53,7 @@
               :key="borderCountry | getBorderCountryName"
               :to="`/${borderCountry[0].name}`"
               class="border-country-button"
+              :class="{borderCountrybtnDarkMode: isDarkModeOn}"
             >
               <div>{{borderCountry | getBorderCountryName}}</div>
             </router-link>
@@ -68,6 +69,11 @@
 import CountryService from '../services/CountryService';
 
 export default {
+  props: {
+    isDarkModeOn: {
+      isRequired: true
+    }
+  },
   data() {
     return {
       country: null,

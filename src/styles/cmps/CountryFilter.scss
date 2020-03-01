@@ -20,6 +20,15 @@
   font-size: rem(14px);
   font-family: inherit;
   padding-top: 7px;
+  outline: none;
+
+  &.countryFilterElementsDarkMode {
+    background-image: url(assets/img/search-13-48-white.png);
+    box-shadow: 1px 1px 3px $clr6;
+  }
+  &.countryFilterElementsDarkMode::placeholder {
+    color: $clr4;
+  }
 }
 
 .region-filter-container {
@@ -35,18 +44,27 @@
   background-color: $clr4;
   overflow: hidden;
   padding-top: 20px;
+
+  &.countryFilterElementsDarkMode {
+    box-shadow: 1px 1px 3px $clr6;
+  }
 }
 
 .region-filter-select-container {
   position: relative;
   width: 180px;
-  background: url(assets/img/arrow.png) no-repeat;
-  background-position: 172px 8px;
+  background-image: url(assets/img/arrow.png);
+  background-repeat: no-repeat;
+  background-position: 170px 8px;
   background-size: 9px;
   margin-top: -1px;
+
+  &.countryFilterElementsDarkMode {
+    background-image: url(assets/img/white-arrow.png);
+  }
 }
 
-#region-filter {
+.region-filter {
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -56,6 +74,10 @@
   border-radius: 6px;
   margin-top: 20px;
   box-shadow: 1px 1px 3px $clr3;
+
+  &.countryFilterElementsDarkMode {
+    box-shadow: 1px 1px 3px $clr6;
+  }
 }
 
 .filter-option {
@@ -66,4 +88,9 @@
 
 .filter-option:hover {
   color: $clr3;
+}
+
+.countryFilterElementsDarkMode {
+  background-color: $clr6;
+  color: $clr4;
 }

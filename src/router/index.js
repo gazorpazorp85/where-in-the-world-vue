@@ -10,7 +10,8 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    // props: isDarkModeOn
   },
   {
     path: '/:name',

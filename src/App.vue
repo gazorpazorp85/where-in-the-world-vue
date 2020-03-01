@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <NavBar />
-    <router-view/>
+    <NavBar @darkModeOn="setDarkMode"/>
+    <router-view :isDarkModeOn="this.isDarkModeOn"/>
   </div>
 </template>
 
@@ -10,12 +10,22 @@
 import NavBar from './components/NavBar';
 
 export default {
+  data() {
+    return {
+      isDarkModeOn: false
+    }
+  },
   components: {
     NavBar
+  },
+  methods: {
+    setDarkMode(darkModeOn) {
+      this.isDarkModeOn = darkModeOn;
+    }
   }
 }
 </script>
 
 <style lang="scss">
-  @import './styles/global.scss';
+@import "./styles/global.scss";
 </style>

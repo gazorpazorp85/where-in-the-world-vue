@@ -16,6 +16,26 @@
   margin-bottom: 4px;
 }
 
+.navBarDarkMode {
+  background-color: $clr6;
+  color: $clr4;
+}
+
+.dark-mode-container {
+  display: flex;
+  align-items:center;
+  height:30px;
+}
+
+.img-container {
+  margin-right: 10px;
+
+  img {
+    height: 16px;
+    margin-top: 6px;
+  }
+}
+
 @include for-tablet-layout {
   .nav-bar {
     height: 176px;
