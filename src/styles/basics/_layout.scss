@@ -18,5 +18,6 @@
   @include for-mobile-layout {
     max-width: $mobile-breakpoint;
     padding: 0 24px;
+    margin: unset;
   }
 }

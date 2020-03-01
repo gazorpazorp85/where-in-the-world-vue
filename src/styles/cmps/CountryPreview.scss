@@ -52,3 +52,14 @@
     margin-right: 80px;
   }
 }
+
+@include for-mobile-layout {
+
+  .country-container {
+    width: 84%;
+  }
+
+  .country-container:not(:nth-child(4n + 0)) {
+    margin-right: unset;
+  }
+}

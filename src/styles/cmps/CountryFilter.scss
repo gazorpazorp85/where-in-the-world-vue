@@ -94,3 +94,20 @@
   background-color: $clr6;
   color: $clr4;
 }
+
+
+@include for-mobile-layout {
+  .filter-container {
+    flex-direction: column;
+    justify-content: unset;
+    align-items: flex-start;
+    height: 230px;
+    padding-top:25px;
+    margin-bottom: unset;
+  }
+
+  #txt-filter {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+}
