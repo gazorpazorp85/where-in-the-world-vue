@@ -1,18 +1,18 @@
 <template>
   <div id="app">
-    <NavBar @darkModeOn="setDarkMode"/>
-    <router-view :isDarkModeOn="this.isDarkModeOn"/>
+    <NavBar @darkModeOn="setDarkMode" />
+    <router-view :isDarkModeOn="this.isDarkModeOn" />
   </div>
 </template>
 
 <script>
 
-import NavBar from './components/NavBar';
+import NavBar from '@/components/NavBar';
 
 export default {
   data() {
     return {
-      isDarkModeOn: false
+      isDarkModeOn: null
     }
   },
   components: {
@@ -22,6 +22,9 @@ export default {
     setDarkMode(darkModeOn) {
       this.isDarkModeOn = darkModeOn;
     }
+  },
+  created() {
+    this.isDarkModeOn = JSON.parse(localStorage.getItem('darkMode')) || false;
   }
 }
 </script>

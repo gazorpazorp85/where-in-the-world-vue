@@ -1,28 +1,29 @@
 <template>
-  <div class="home" :class="{darkMode: isDarkModeOn}">
-    <div class="main-container">
-      <CountryFilter @filterCountries="onFilterCountries" :isDarkModeOn="isDarkModeOn" />
-      <CountryList :countries="countriesToShow" :isDarkModeOn="isDarkModeOn"/>
+  <div class="home" :class="{ darkMode: isDarkModeOn }">
+    <div v-if="countries" class="main-container home-subcontainer">
+      <CountryFilter
+        @filterCountries="onFilterCountries"
+        :isDarkModeOn="isDarkModeOn"
+      />
+      <CountryList :countries="countriesToShow" :isDarkModeOn="isDarkModeOn" />
     </div>
   </div>
 </template>
 
 <script>
 
-import CountryList from '../components/CountryList';
-import CountryFilter from '../components/CountryFilter';
-
-import CountryService from '../services/CountryService';
+import { mapState } from 'vuex';
+import CountryList from '@/components/CountryList';
+import CountryFilter from '@/components/CountryFilter';
 
 export default {
   props: {
     isDarkModeOn: {
-      isRequired: true
+      required: true
     }
   },
   data() {
     return {
-      countries: [],
       filterBy: { name: '', region: '' }
     }
   },
@@ -31,6 +32,7 @@ export default {
     CountryFilter
   },
   computed: {
+    ...mapState({ countries: state => state.country.countries }),
     countriesToShow() {
       const lowerCaseFilterName = this.filterBy.name.toLowerCase();
       const lowerCaseRegionName = this.filterBy.region.toLowerCase();
@@ -40,8 +42,8 @@ export default {
       )
     }
   },
-  async created() {
-    this.countries = await CountryService.query();
+  created() {
+    this.$store.dispatch('getCountries');
   },
   methods: {
     onFilterCountries(filterBy) {

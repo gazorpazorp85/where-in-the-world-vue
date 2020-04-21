@@ -28,7 +28,7 @@
 export default {
     props: {
     isDarkModeOn: {
-      isRequired: true
+      required: true
     }
   },
   data() {

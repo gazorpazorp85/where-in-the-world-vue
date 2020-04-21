@@ -1,5 +1,5 @@
 <template>
-  <router-link class="country-container" :class="{CountryPreviewDarkMode: isDarkModeOn}" :to="`/${country.name}`">
+  <router-link class="country-container" :class="{CountryPreviewDarkMode: isDarkModeOn}" :to="`/country/${country.alpha3Code}`">
     <div>
       <div class="flag-container">
         <img :src="country.flag" :alt="country.name" />
@@ -27,10 +27,10 @@
 export default {
   props: {
     country: {
-      isRequired: true
+      required: true
     },
     isDarkModeOn: {
-      isRequired: true
+      required: true
     }
   }
 }
