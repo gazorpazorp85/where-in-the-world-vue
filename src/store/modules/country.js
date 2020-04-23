@@ -15,26 +15,25 @@ export const mutations = {
 }
 
 export const actions = {
-    getCountries({ commit }) {
-        return CountryService.query()
-            .then(response => {
-                commit('SET_COUNTRIES', response)
-            })
-            .catch(error => {
-                console.log(error);
-                throw error;
-            })
+    async getCountries({ commit }) {
+        try {
+            const countries = await CountryService.query();
+            commit('SET_COUNTRIES', countries);
+            return countries
+
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     },
-    getCountry({ commit }, countryCode) {
-        return CountryService.getCountryByCode(countryCode)
-            .then(response => {
-                const returnedData = response[0];
-                commit('SET_COUNTRY', returnedData);
-                return returnedData;
-            })
-            .catch(error => {
-                console.log(error);
-                throw error;
-            })
+    async getCountry({ commit }, countryCode) {
+        try {
+            const country = await CountryService.getCountryByCode(countryCode);
+            commit('SET_COUNTRY', country[0]);
+            return country[0];
+        } catch (error) {
+            console.log(error);
+            throw error;
+        }
     }
 }

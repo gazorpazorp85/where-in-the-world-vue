@@ -1,16 +1,15 @@
 .country-container {
   display: flex;
   flex-direction: column;
-  width: 264px;
+  width: 20.1%;
   height: 345px;
   border-radius: 6px;
   margin-bottom: 66px;
   background-color: $clr4;
-  // box-shadow: 1px 1px 3px $clr3;
 }
 
 .country-container:not(:nth-child(4n + 0)) {
-  margin-right: 78px;
+  margin-right: 6.5%;
 }
 
 .flag-container {
@@ -42,14 +41,14 @@
 
 @include for-wider-layout {
   .country-container {
-    width: 278px;
+    width: 16%;
   }
 
   .country-container:not(:nth-child(4n + 0)) {
     margin-right: unset;
   }
   .country-container:not(:nth-child(5n + 0)) {
-    margin-right: 80px;
+    margin-right: 5%;
   }
 }
 
