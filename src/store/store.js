@@ -7,5 +7,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     modules: {
         country
+    },
+    state: {
+        filterOptions: [
+            'Show All',
+            'Africa',
+            'America',
+            'Asia',
+            'Europe',
+            'Oceania'
+        ]
     }
 })

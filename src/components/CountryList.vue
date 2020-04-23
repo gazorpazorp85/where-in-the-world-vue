@@ -1,8 +1,16 @@
 <template>
   <section>
-      <div v-if="countries" class="countries-container" :class="{darkMode: isDarkModeOn}">
-          <CountryPreview v-for="country in countries" :key="country.name" :country="country" :isDarkModeOn="isDarkModeOn"/>
-      </div>
+    <div
+      class="countries-container"
+      :class="{ darkMode: isDarkModeOn }"
+    >
+      <CountryPreview
+        v-for="country in countries"
+        :key="country.name"
+        :country="country"
+        :isDarkModeOn="isDarkModeOn"
+      />
+    </div>
   </section>
 </template>
 
@@ -11,9 +19,17 @@
 import CountryPreview from './CountryPreview';
 
 export default {
-    props: ["countries","isDarkModeOn"],
-    components: {
-        CountryPreview
+  props: {
+    isDarkModeOn: {
+      required: true
+    },
+    countries: {
+      type: Array,
+      required: true
     }
+  },
+  components: {
+    CountryPreview
+  }
 };
 </script>

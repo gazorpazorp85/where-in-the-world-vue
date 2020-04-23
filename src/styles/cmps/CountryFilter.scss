@@ -24,7 +24,6 @@
 
   &.countryFilterElementsDarkMode {
     background-image: url(assets/img/search-13-48-white.png);
-    box-shadow: 1px 1px 3px $clr6;
   }
   &.countryFilterElementsDarkMode::placeholder {
     color: $clr4;
@@ -44,10 +43,6 @@
   background-color: $clr4;
   overflow: hidden;
   padding-top: 20px;
-
-  &.countryFilterElementsDarkMode {
-    box-shadow: 1px 1px 3px $clr6;
-  }
 }
 
 .region-filter-select-container {
@@ -74,10 +69,6 @@
   border-radius: 6px;
   margin-top: 20px;
   box-shadow: 1px 1px 3px $clr3;
-
-  &.countryFilterElementsDarkMode {
-    box-shadow: 1px 1px 3px $clr6;
-  }
 }
 
 .filter-option {

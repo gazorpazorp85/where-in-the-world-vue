@@ -12,12 +12,7 @@
       <div @click.self="onToggleRegionFilter" class="pointer region-filter-select-container" :class="{countryFilterElementsDarkMode: isDarkModeOn}">
         {{filterRegionInput}}
         <div v-if="this.toggleRegionFilter" class="region-filter" :class="{countryFilterElementsDarkMode: isDarkModeOn}">
-          <div @click="onSetRegionFilter($event)" class="filter-option">Show All</div>
-          <div @click="onSetRegionFilter($event)" class="filter-option">Africa</div>
-          <div @click="onSetRegionFilter($event)" class="filter-option">America</div>
-          <div @click="onSetRegionFilter($event)" class="filter-option">Asia</div>
-          <div @click="onSetRegionFilter($event)" class="filter-option">Europe</div>
-          <div @click="onSetRegionFilter($event)" class="filter-option">Oceania</div>
+        <div v-for="option in filterOptions" :key="option" @click="onSetRegionFilter($event)" class="filter-option">{{option}}</div>
         </div>
       </div>
     </div>
@@ -25,6 +20,7 @@
 </template>
 
 <script>
+
 export default {
     props: {
     isDarkModeOn: {
@@ -34,7 +30,8 @@ export default {
   data() {
     return {
       filterBy: { name: '', region: '' },
-      toggleRegionFilter: false
+      toggleRegionFilter: false,
+      filterOptions: this.$store.state.filterOptions
     };
   },
   computed: {
