@@ -3,15 +3,18 @@
   width: 137px;
   border-radius: 6px;
   box-shadow: 1px 1px 6px $clr3;
-  background-image: url(assets/img/back-arrow.png);
-  background-repeat: no-repeat;
-  background-position: 32px 12px;
+  background: url(assets/img/back-arrow.png) no-repeat 32px 12px;
 
   &.backBtnDark {
     background-color: $clr6;
     background-image: url(assets/img/back-arrow-white.png);
-    box-shadow: 1px 1px 6px $clr5;
   }
+}
+
+.back-btn:hover {
+  background-image: url(assets/img/back-arrow-grey.png);
+  box-shadow: 3px 3px 8px $clr3;
+  color: $clr3;
 }
 
 .border-country-button {

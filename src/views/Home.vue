@@ -30,7 +30,6 @@ async function getCountries(routeTo, next) {
   }
 }
 
-
 export default {
   props: {
     isDarkModeOn: {

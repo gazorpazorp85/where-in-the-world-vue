@@ -46,7 +46,7 @@
   }
 
   .country-container:hover {
-    box-shadow: 5px 5px 7px 7px $clr3;
+    box-shadow: 5px 5px 10px $clr3;
   }
   
   .country-container:not(:nth-child(4n + 0)) {

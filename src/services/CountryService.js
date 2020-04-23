@@ -11,7 +11,7 @@ const Axios = axios.create({
     }
 })
 
-const lookup = require('country-code-lookup');
+import * as lookup from 'country-code-lookup';
 
 export default {
     query,
