@@ -16,6 +16,7 @@
 <script>
 
 import store from '@/store/store';
+
 import CountryList from '@/components/CountryList';
 import CountryFilter from '@/components/CountryFilter';
 
@@ -68,4 +69,5 @@ export default {
     }
   }
 }
+
 </script>

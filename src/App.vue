@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar @darkModeOn="setDarkMode" @scrollToTop="scrollToTop"/>
+    <NavBar @darkModeOn="setDarkMode" />
     <router-view :isDarkModeOn="this.isDarkModeOn" />
   </div>
 </template>
@@ -21,10 +21,6 @@ export default {
   methods: {
     setDarkMode(darkModeOn) {
       this.isDarkModeOn = darkModeOn;
-    },
-    scrollToTop() {
-      console.log('here');
-      window.scrollTo(0, 0);
     }
   },
   created() {

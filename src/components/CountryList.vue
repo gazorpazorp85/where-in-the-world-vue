@@ -1,9 +1,6 @@
 <template>
   <section>
-    <div
-      class="countries-container"
-      :class="{ darkMode: isDarkModeOn }"
-    >
+    <div class="countries-container" :class="{ darkMode: isDarkModeOn }">
       <CountryPreview
         v-for="country in countries"
         :key="country.name"
