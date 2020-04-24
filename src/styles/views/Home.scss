@@ -8,3 +8,30 @@
 .home-subcontainer {
     width: 100%;
 }
+
+.scroll-to-top-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 25px;
+    height: 70px;
+    width: 70px;
+    background-color: $clr6;
+    color: $clr4;
+    box-shadow: 1px 1px 6px $clr3;
+    border: none;
+    border-radius: 50%;
+    font-size: 36px;
+    line-height: 80px;
+    opacity: 0;
+    transition: opacity 0.75s ease-in-out;
+
+    &.darkMode {
+        background-color: $clr4;
+        color: $clr6;
+    }
+    &.shown {
+        opacity: 1;
+    }
+}
+
+

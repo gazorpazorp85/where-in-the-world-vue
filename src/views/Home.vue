@@ -1,14 +1,27 @@
 <template>
-  <div class="home" :class="{ darkMode: isDarkModeOn }">
+  <div
+    class="home"
+    v-on:scroll="handleScroll"
+    :class="{ darkMode: isDarkModeOn }"
+  >
     <div
       class="main-container home-subcontainer"
       :class="{ darkMode: isDarkModeOn }"
+      id="top"
     >
       <CountryFilter
         @filterCountries="onFilterCountries"
         :isDarkModeOn="isDarkModeOn"
       />
       <CountryList :countries="countriesToShow" :isDarkModeOn="isDarkModeOn" />
+      <button
+        href="#"
+        v-scroll-to="'#top'"
+        class="pointer scroll-to-top-btn"
+        :class="{ darkMode: isDarkModeOn, shown: scrollpx > 110 }"
+      >
+        ^
+      </button>
     </div>
   </div>
 </template>
@@ -44,6 +57,7 @@ export default {
   data() {
     return {
       filterBy: { name: '', region: '' },
+      scrollpx: 0
     }
   },
   components: {
@@ -66,6 +80,9 @@ export default {
   methods: {
     onFilterCountries(filterBy) {
       this.filterBy = filterBy;
+    },
+    handleScroll() {
+      this.scrollpx = this.$el.scrollTop;
     }
   }
 }
