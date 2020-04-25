@@ -16,22 +16,23 @@
     height: 70px;
     width: 70px;
     background-color: $clr6;
-    color: $clr4;
+    background-image: url(assets/img/back-to-top-light-24.png);
+    background-repeat: no-repeat;
+    background-position: center;
     box-shadow: 1px 1px 6px $clr3;
     border: none;
     border-radius: 50%;
-    font-size: 36px;
-    line-height: 80px;
     opacity: 0;
     transition: opacity 0.75s ease-in-out;
 
     &.darkMode {
         background-color: $clr4;
-        color: $clr6;
+        background-image: url(assets/img/back-to-top-dark-24.png);
     }
     &.shown {
         opacity: 1;
     }
 }
+
 
 

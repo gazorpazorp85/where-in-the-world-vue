@@ -1,7 +1,7 @@
 <template>
   <div
     class="home"
-    v-on:scroll="handleScroll"
+    @scroll="handleScroll"
     :class="{ darkMode: isDarkModeOn }"
   >
     <div
@@ -20,7 +20,6 @@
         class="pointer scroll-to-top-btn"
         :class="{ darkMode: isDarkModeOn, shown: scrollpx > 110 }"
       >
-        ^
       </button>
     </div>
   </div>
@@ -71,7 +70,16 @@ export default {
       return this.countries.filter(country =>
         country.name.toLowerCase().includes(lowerCaseFilterName) &&
         country.region.toLowerCase().includes(lowerCaseRegionName)
-      )
+      ).sort((countryA, countryB) => {
+        let nameA = countryA.name.toLowerCase();
+        let nameB = countryB.name.toLowerCase();
+        return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
+        // if (nameA < nameB) {
+        //   return -1
+        // } else if (nameA > nameB) {
+        //   return 1
+        // } else return 0;
+      });
     }
   },
   beforeRouteEnter(routeTo, routeFrom, next) {

@@ -1,5 +1,6 @@
 <template>
   <div class="filter-container">
+    <div v-if="toggleRegionFilter" @click.self="onToggleRegionFilter" class="screen"></div>
     <input
       type="text"
       id="txt-filter"
