@@ -1,17 +1,17 @@
 .country-details-page {
   background-color: $clr1;
-  height: 91.3%;
-  width: 100%;
+  flex: 1;
+  overflow: auto;
+}
+
+.country-details-container {
+  padding-top: 78px;
+  background-color: $clr1;
 }
 
 .darkMode {
   background-color: $clr5;
   color: $clr4;
-}
-
-.country-details-container {
-  padding-top: 78px;
-  flex: 1;
 }
 
 .back-btn-text {
@@ -88,9 +88,10 @@
   margin-right: 10px;
 }
 
-@include for-mobile-layout {
+@include for-tablet-layout {
+
   .country-details-page {
-    height: unset;
+    padding-bottom: 20px;
   }
 
   .country-details-container {
@@ -98,18 +99,45 @@
   }
 
   .details-subcontainer {
+    flex: 1;
     flex-direction: column;
     margin-top: 50px;
   }
 
   .details-flag-container {
-    height: 250px;
     width: 100%;
+    height: 350px;
     margin-right: unset;
+    margin-bottom: 40px;
   }
 
   .info-container {
     width: 100%;
+  }
+
+  .info-subcontainer {
+    margin-bottom: 30px;
+  }
+
+  .details-info-country-name {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .left-subcontainer {
+    margin-right: unset;
+  }
+}
+
+@include for-mobile-layout {
+  .country-details-page {
+    padding-bottom: 40px;
+  }
+
+  .details-flag-container {
+    height: 250px;
+    margin-right: unset;
+    margin-bottom: unset;
   }
 
   .info-subcontainer {
@@ -118,8 +146,12 @@
     margin-bottom: 41px;
   }
 
+  .details-info-country-name {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
   .left-subcontainer {
-    margin-right: unset;
     margin-bottom: 20px;
   }
 }

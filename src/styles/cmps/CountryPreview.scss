@@ -46,20 +46,35 @@
     width: 16%;
   }
 
+  .country-container:not(:nth-child(4n + 0)) {
+    margin-right: 0;
+  }
+
   .country-container:hover {
     box-shadow: 5px 5px 10px $clr3;
   }
-  
-  .country-container:not(:nth-child(4n + 0)) {
-    margin-right: unset;
-  }
+
   .country-container:not(:nth-child(5n + 0)) {
     margin-right: 5%;
   }
 }
 
-@include for-mobile-layout {
+@include for-tablet-layout {
+  .country-container {
+    width: 45%;
+  }
 
+  .country-container:not(:nth-child(4n + 0)) {
+    margin-right: unset;
+  }
+
+  .country-container:nth-child(odd) {
+    margin-right: 10%;
+  }
+
+}
+
+@include for-mobile-layout {
   .country-container {
     width: 84%;
   }

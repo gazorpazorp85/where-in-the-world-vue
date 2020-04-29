@@ -3,6 +3,7 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     background-color: $clr1;
+    margin-bottom: 40px
 }
 
 @include for-mobile-layout {

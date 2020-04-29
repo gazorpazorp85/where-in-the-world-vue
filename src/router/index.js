@@ -3,9 +3,9 @@ import VueRouter from 'vue-router';
 
 import NProgress from 'nprogress';
 
-import Home from './views/Home';
-import CountryDetails from './views/CountryDetails.vue';
-import NotFound from './views/NotFound';
+import Home from '@/views/Home';
+import CountryDetails from '@/views/CountryDetails.vue';
+import NotFound from '@/views/NotFound';
 
 Vue.use(VueRouter)
 
@@ -34,7 +34,6 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  mode: 'history',
   base: process.env.BASE_URL,
   routes
 })

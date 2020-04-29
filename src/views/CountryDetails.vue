@@ -1,10 +1,9 @@
 <template>
-  <section
-    v-if="country"
+  <div
     class="country-details-page"
     :class="{ darkMode: isDarkModeOn }"
   >
-    <div class="flex column main-container country-details-container">
+    <div class="flex column main-container country-details-container" :class="{ darkMode: isDarkModeOn }">
       <div
         class="flex pointer capitalize back-btn"
         :class="{ backBtnDark: isDarkModeOn }"
@@ -78,7 +77,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>

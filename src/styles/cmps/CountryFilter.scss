@@ -94,6 +94,20 @@
   color: $clr4;
 }
 
+@include for-tablet-layout {
+
+  .filter-container {
+    height: 100px;
+    margin-bottom: 8px;
+  }
+
+  #txt-filter {
+    width: 304px;
+    background-position: 15px 20px;
+    text-indent: 45px;
+  }
+}
+
 
 @include for-mobile-layout {
   .filter-container {

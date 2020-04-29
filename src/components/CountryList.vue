@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <div>
     <div class="countries-container" :class="{ darkMode: isDarkModeOn }">
       <CountryPreview
         v-for="countryIndex in countriesToShow"
@@ -15,7 +15,7 @@
     >
       <div>show more</div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
