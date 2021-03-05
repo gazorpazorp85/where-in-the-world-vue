@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="home"
-    @scroll="handleScroll"
-    :class="{ darkMode: isDarkModeOn }"
-  >
+  <div class="home" @scroll="handleScroll" :class="{ darkMode: isDarkModeOn }">
     <div
       class="main-container home-subcontainer"
       :class="{ darkMode: isDarkModeOn }"
@@ -19,8 +15,7 @@
         v-scroll-to="'#top'"
         class="pointer scroll-to-top-btn"
         :class="{ darkMode: isDarkModeOn, shown: scrollpx > 110 }"
-      >
-      </button>
+      ></button>
     </div>
   </div>
 </template>
@@ -32,30 +27,9 @@ import store from '@/store/store';
 import CountryList from '@/components/CountryList';
 import CountryFilter from '@/components/CountryFilter';
 
-async function getCountries(routeTo, next) {
-  try {
-    const countries = await store.dispatch('getCountries');
-    routeTo.params.countries = countries;
-    next();
-  } catch (error) {
-    console.log(error);
-    next({ name: 'not-found' });
-  }
-}
-
 export default {
-  props: {
-    isDarkModeOn: {
-      required: true
-    },
-    countries: {
-      type: Array,
-      required: true
-    }
-  },
   data() {
     return {
-      filterBy: { name: '', region: '' },
       scrollpx: 0
     }
   },
@@ -65,33 +39,28 @@ export default {
   },
   computed: {
     countriesToShow() {
-      const lowerCaseFilterName = this.filterBy.name.toLowerCase();
-      const lowerCaseRegionName = this.filterBy.region.toLowerCase();
-      return this.countries.filter(country =>
-        country.name.toLowerCase().includes(lowerCaseFilterName) &&
-        country.region.toLowerCase().includes(lowerCaseRegionName)
-      ).sort((countryA, countryB) => {
-        let nameA = countryA.name.toLowerCase();
-        let nameB = countryB.name.toLowerCase();
-        return (nameA < nameB) ? -1 : (nameA > nameB) ? 1 : 0;
-        // if (nameA < nameB) {
-        //   return -1
-        // } else if (nameA > nameB) {
-        //   return 1
-        // } else return 0;
-      });
-    }
+      return this.$store.getters.countriesToShow;
+    },
+    isDarkModeOn() {
+      return this.$store.getters.darkMode;
+    },
   },
   beforeRouteEnter(routeTo, routeFrom, next) {
-    getCountries(routeTo, next);
+    try {
+      store.dispatch({ type: 'getCountries' });
+      next();
+    } catch (error) {
+      console.log(error);
+      next({ name: 'not-found' });
+    }
   },
   methods: {
     onFilterCountries(filterBy) {
-      this.filterBy = filterBy;
+      this.$store.commit({ type: 'SET_FILTER', filterBy });
     },
     handleScroll() {
       this.scrollpx = this.$el.scrollTop;
-    }
+    },
   }
 }
 

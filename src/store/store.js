@@ -16,6 +16,21 @@ export default new Vuex.Store({
             'Asia',
             'Europe',
             'Oceania'
-        ]
+        ],
+        isDarkModeOn: JSON.parse(localStorage.getItem('darkMode')) || false
+    },
+    getters: {
+        filterOptions(state) {
+            return state.filterOptions;
+        },
+        darkMode(state) {
+            return state.isDarkModeOn;
+        }
+    },
+    mutations: {
+        setDarkMode(state) {
+            state.isDarkModeOn = !state.isDarkModeOn;
+            localStorage.setItem('darkMode', state.isDarkModeOn);
+        }
     }
 })

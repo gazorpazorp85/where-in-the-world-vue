@@ -1,10 +1,17 @@
 <template>
   <div>
     <div class="countries-container" :class="{ darkMode: isDarkModeOn }">
-      <CountryPreview
+      <!-- <CountryPreview
         v-for="countryIndex in countriesToShow"
         :key="countries[countryIndex - 1].name"
         :country="countries[countryIndex - 1]"
+        :isDarkModeOn="isDarkModeOn"
+      />
+    </div> -->
+      <CountryPreview
+        v-for="country in countries"
+        :key="country.name"
+        :country="country"
         :isDarkModeOn="isDarkModeOn"
       />
     </div>

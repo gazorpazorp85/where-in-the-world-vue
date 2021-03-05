@@ -1,4 +1,5 @@
 import axios from 'axios';
+import * as lookup from 'country-code-lookup';
 
 const BASE_URL = 'https://restcountries.eu/rest/v2';
 
@@ -11,7 +12,6 @@ const Axios = axios.create({
     }
 })
 
-import * as lookup from 'country-code-lookup';
 
 export default {
     query,

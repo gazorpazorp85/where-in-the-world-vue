@@ -16,25 +16,18 @@
 <script>
 
 export default {
-  data() {
-    return {
-      isDarkModeOn: null
-    };
-  },
   computed: {
+    isDarkModeOn() {
+      return this.$store.getters.darkMode;
+    },
     getButtonTxt() {
       return (this.isDarkModeOn) ? 'light mode' : 'dark mode';
     }
   },
   methods: {
     setMode() {
-      this.isDarkModeOn = !this.isDarkModeOn;
-      this.$emit("darkModeOn", this.isDarkModeOn);
-      localStorage.setItem('darkMode', this.isDarkModeOn);
+      this.$store.commit({ type: 'setDarkMode'});
     }
   },
-  created() {
-    this.isDarkModeOn = JSON.parse(localStorage.getItem('darkMode')) || false;
-  }
 }
 </script>

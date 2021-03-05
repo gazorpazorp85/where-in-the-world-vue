@@ -1,9 +1,9 @@
 <template>
-  <div
-    class="country-details-page"
-    :class="{ darkMode: isDarkModeOn }"
-  >
-    <div class="flex column main-container country-details-container" :class="{ darkMode: isDarkModeOn }">
+  <div class="country-details-page" :class="{ darkMode: isDarkModeOn }">
+    <div
+      class="flex column main-container country-details-container"
+      :class="{ darkMode: isDarkModeOn }"
+    >
       <div
         class="flex pointer capitalize back-btn"
         :class="{ backBtnDark: isDarkModeOn }"
@@ -60,7 +60,7 @@
             </div>
           </div>
           <div
-            v-if="country.borders.length !== 0"
+            v-if="country.borders && country.borders.length > 0"
             class="flex border-countries-container"
           >
             <div class="category-name">Border Countries:</div>
@@ -84,36 +84,38 @@
 
 import store from '@/store/store';
 
-async function getCountry(routeTo, next) {
-  try {
-    const country = await store.dispatch('getCountry', routeTo.params.code);
-    routeTo.params.country = country;
-    next();
-  } catch (error) {
-    console.log(error);
-    next({ name: 'not-found' });
-  }
-}
-
 export default {
-  props: {
-    isDarkModeOn: {
-      required: true
-    },
-    country: {
-      type: Object,
-      required: true
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    try {
+      store.dispatch('getCountry', routeTo.params.code);
+      routeTo.params.country = store.getters.countryToShow;
+      next();
+    } catch (error) {
+      console.log(error);
+      next({ name: 'not-found' });
     }
   },
-  beforeRouteEnter(routeTo, routeFrom, next) {
-    getCountry(routeTo, next);
-  },
   beforeRouteUpdate(routeTo, routeFrom, next) {
-    getCountry(routeTo, next);
+    try {
+      store.dispatch('getCountry', routeTo.params.code);
+      routeTo.params.country = store.getters.countryToShow;
+      next();
+    } catch (error) {
+      console.log(error);
+      next({ name: 'not-found' });
+    }
   },
   methods: {
     goBack() {
       this.$router.push('/');
+    },
+  },
+  computed: {
+    country() {
+      return this.$store.getters.countryToShow;
+    },
+    isDarkModeOn() {
+      return this.$store.getters.darkMode;
     }
   }
 };
