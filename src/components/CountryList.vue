@@ -15,13 +15,13 @@
         :isDarkModeOn="isDarkModeOn"
       />
     </div>
-    <div
+    <!-- <div
       class="flex center align-center pointer capitalize show-more-btn"
       @click="showMoreCountries"
       v-if="countriesToShow < max"
     >
       <div>show more</div>
-    </div>
+    </div> -->
   </div>
 </template>
 
